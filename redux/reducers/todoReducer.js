@@ -9,13 +9,13 @@ let todoReducer = function(todos = [],action) {
 
 switch(action.type){
 
-	case 'ADD_TODO':
+		case 'ADD_TODO':
 		//console.log("add todo")
 		return  [{
 				text: action.text,
 				completed: false,
-				id:getId(state)
-			},...state.todos]
+				id:getId(todos)
+			},...todos]
 
 		case 'COMPLETE_TODO':
 			return todos.map((todo) => {

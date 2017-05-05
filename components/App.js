@@ -1,5 +1,4 @@
 import React, { Component} from 'react'
-
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import { connect} from 'react-redux'
@@ -11,11 +10,13 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="jumbotron">
+			<div className="container">
 			<h1>Todo List</h1>
-			<UserInfo user={this.props.user} createNewUserId={this.props.actions.createNewUserId}/>
+			<UserInfo user={this.props.user} createNewUserId={this.props.actions.createNewUserId} createNewUserIdIfOdd={this.props.actions.createNewUserIdIfOdd}  createNewUserIdAsync={this.props.actions.createNewUserIdAsync}/>
 			<TodoInput  addTodo ={this.props.actions.addTodo}/>
 			<TodoList actions={this.props.actions} todos={this.props.todos}/>
+			</div>
 			</div>
 			)
 	}

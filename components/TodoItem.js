@@ -13,10 +13,10 @@ class TodoItem extends Component {
 
 	render() {
 		return (
-				<li>
+				<li className="list-group-item">
 				<div>{this.props.todo.text}</div>
-				<button onClick={this.handleComplete.bind(this)}>Mark as Completed</button>
-				<button onClick={this.handleDelete.bind(this)}>Delete Todo</button>
+				<button className="btn btn-primary" onClick={this.handleComplete.bind(this)}>Mark as Completed</button>
+				<button className="btn btn-primary" onClick={this.handleDelete.bind(this)}>Delete Todo</button>
 				</li>
 			)
 	}

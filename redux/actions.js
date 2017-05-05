@@ -19,21 +19,32 @@ let actions = {
 		}
 	},
 	createNewUserId: function() {
+		//do some async server call
+		//onSuccess :dispatch()
+		
 		return {
 			type:'CREATE_USER_ID',
-			id:Math.random().slice(0,2)
+			id:Math.random()*100
 		}
-	}
+	},
 	createNewUserIdIfOdd: function() {
 		return (dispatch,getState) => {
 			const { user } = getState()
 			if(user.id %2 === 0) {
-				return 
+				return
 			}
-			createNewUserId
+			dispatch(actions.createNewUserId())
+			//createNewUserId
+		}
+	},
+	createNewUserIdAsync: function() {
+		return (dispatch) => {
+			setTimeout(() => {
+				dispatch(actions.createNewUserId())
+			},2500)
+			//createNewUserId
 		}
 	}
-
 }
 
 export default actions
